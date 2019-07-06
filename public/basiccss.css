@@ -1,0 +1,39 @@
+body{
+		background: url(https://images.pexels.com/photos/567633/pexels-photo-567633.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+		background-size: cover;
+		background-position: center; 
+		
+}
+html{
+	height: 100%;
+}
+#content{
+	text-shadow: 0px , 4px, 3px rgba(0,0,0,0.4)
+				0px , 8px, 13px rgba(0,0,0,0.1)
+				0px , 18px, 23px rgba(0,0,0,0.1)		;
+	text-align: center;
+	padding-top: 25%;
+}
+
+h1,h3{
+	color:black;
+	/*font-family: 'Satisfy', cursive;*/
+	/*font-family: 'Quattrocento Sans', sans-serif;*/
+font-family: 'Satisfy', cursive
+}
+
+h1{
+	font-weight:400;
+	font-size=5em;
+
+
+
+}
+
+
+
+hr{
+	width: 400px;
+    border-top: 1px solid #f8f8f8;
+    border-bottom: 1px solid rgba(0,0,0,0.2)
+}
