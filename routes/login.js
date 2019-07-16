@@ -8,13 +8,14 @@ router.get('/', function(req, res, next) {
   res.render('login');
 });
 
-
+// req.body.role
 // post routes
-router.post('/', passport.authenticate("local",{
-	successRedirect :"/admin",
+router.post('/',
+function(req, res, next) {	
+	passport.authenticate("local",{
+	successRedirect :"/dashboard",
 	failureRedirect:"/login"
-}),function(req, res) {
- 
+})
 });
 
 

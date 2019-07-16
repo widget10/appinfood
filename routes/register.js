@@ -13,14 +13,16 @@ router.get('/', function(req, res, next) {
 
 router.post('/', function(req, res) {
   req.body.username
-  req.body.password
   req.body.email
-  req.body.firstname
-  req.body.lastname
-  User.register(new User({username:req.body.username,email:req.body.email,firstname:req.body.firstname,lastname:req.body.lastname}),req.body.password,function(err,user){
+  req.body.password
+  req.body.role
+  req.body.name
+  // req.body.lastname
+  User.register(new User({email:req.body.email,name:req.body.name,username:req.body.username,role:req.body.role}),req.body.password,function(err,user){
   	if(err){
   		console.log(err);
-  		 return res.render('register');
+      //  return res.render('register');
+      res.send("hsbdk");
   	}
   	passport.authenticate("local")(req,res,function(){
   		res.redirect("/login");

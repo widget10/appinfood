@@ -12,8 +12,22 @@ var  sass    = require('node-sass');
 var sassMiddleware = require('node-sass-middleware');
 //Database connection here
 // mongoose.Promise=global.Promise;
+
+
+// const multer = require('multer');
 mongoose.connect('mongodb://localhost:27017/FoodData');
  
+
+// const storage =multer.diskStorage({
+//   dsetination:function(req,res,cb){
+//     cb(null,'uploads/')
+//   }
+// });
+
+
+// const upload = multer({
+//   storage: storage
+// });
 
 
 

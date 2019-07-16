@@ -5,14 +5,7 @@
   <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-  <style type="text/css">
-    .c {
-        margin-top: auto;
-        margin: 0 auto; /* Added */
-        float: none; /* Added */
-        margin-bottom: 10px; /* Added */
-}
-  </style>
+
 
   <!-- <link rel="stylesheet"  href="/app.css"> -->
 </head>
@@ -21,20 +14,35 @@
 
 
 
-<div class="container">
-  <div class="row">
-    <div class="card col-lg-6 col-md-6 c">
+<div class="container my-5">
+  <div class="d-flex flex-row justify-content-center">
+    <div class="card col-lg-6 col-md-6  ">
   <h5 class="card-header">Login</h5>
   <div class="card-body">
    <form  action="/login" method="POST">
   <div class="form-group">
-    <label for="username">Username</label>
-    <input type="text" class="form-control" id="username" name="username"placeholder="Enter username">
+    <!-- <label for="email">Email</label>
+    <input type="email" class="form-control" id="email" name="email"placeholder="Enter email"> -->
+    <div class="form-group">
+      <label for="uname">UserName</label>
+      <input type="text" class="form-control" id="uname" name="username" placeholder="Enter user name">
+      
+    </div>
     <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
   </div>
   <div class="form-group">
     <label for="password">Password</label>
     <input type="password" class="form-control" id="password"name="password" placeholder="Password">
+  </div>
+  <div class="form-group">
+  	<P>Select your role</P>
+<label for="Admin">Admin</label>
+<input id="Admin" type="radio" name="role" value="1" >
+
+
+<label for="Agent">Agent</label>
+<input id="Agent" type="radio" name="role" value="2">
+  	
   </div>
   
 
