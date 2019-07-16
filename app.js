@@ -8,7 +8,8 @@ var LocalStrategy = require('passport-local');
 var passportLocalMongoose=require('passport-local-mongoose');
 var mongoose=require('mongoose');
 var User = require('./models/user');
-
+var  sass    = require('node-sass');
+var sassMiddleware = require('node-sass-middleware');
 //Database connection here
 // mongoose.Promise=global.Promise;
 mongoose.connect('mongodb://localhost:27017/FoodData');
@@ -49,6 +50,14 @@ saveUninitialized:false
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+app.use(
+  sassMiddleware({
+      src: __dirname + '/sass', 
+      dest: __dirname + '/public/stylesheets',
+      prefix:  '/stylesheets',
+      debug: true,         
+  })
+);    
 
 app.use(logger('dev'));
 app.use(express.json());
