@@ -33,14 +33,13 @@ router.get('/dashboard', function(req, res, next) {
 
   Fooditem.find()    
    .then( (food) => {
-
-   
-
     res.render("dashboard", 
     {
-      food : food 
+      food : food ,
+      qty: req.session.cart.totalQty
       // v:v
     });
+    
   })
   .catch(err => {
     console.log(err);

@@ -15,14 +15,16 @@ const multer = require('multer');
 const GridFsStorage = require('multer-gridfs-storage');
 const Grid = require('gridfs-stream');
 const methodOverride = require('method-override');
+const session =require("express-session");
+var MongoStore = require('connect-mongo')(session);
 
 
 const SendOtp = require('sendotp');
-const sendOtp = new SendOtp('285517A3lUDFLUd5d2ebf40', 'Otp for your FOODHUB is {{otp}}, please do not share it with anybody');
+// const sendOtp = new SendOtp('285517A3lUDFLUd5d2ebf40', 'Otp for your FOODHUB is {{otp}}, please do not share it with anybody');
 
-sendOtp.send("7839156089", "PRIIND", function (error, data) {
-  console.log(data);
-});
+// sendOtp.send("7839156089", "PRIIND", function (error, data) {
+//   console.log(data);
+// });
 //Database connection here
 // mongoose.Promise=global.Promise;
 
@@ -81,6 +83,7 @@ var loginRouter = require('./routes/login');
 var registerRouter = require('./routes/register');
 var adminRouter = require('./routes/admin')
 var custRoutes = require('./routes/customer');
+var shoppingcartRouter= require('./routes/shoppingcart');
 
 
 
@@ -100,10 +103,12 @@ app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
 
-app.use(require("express-session")({
+app.use(session({
 secret:"any english sentence to encode or decode",
 resave:false,
-saveUninitialized:false
+saveUninitialized:false,
+store: new MongoStore({mongooseConnection : mongoose.connection}),
+cookie :{ maxAge:180*60*1000}
 }));
 
 passport.serializeUser(User.serializeUser());
@@ -124,26 +129,29 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/login',loginRouter);
-app.use('/register',registerRouter);
-app.use('/admin',adminRouter);
-app.use('/customer', custRoutes);
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
-});
+
 
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
-
+  res.locals.session = req.session;
+next();
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+});
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
+app.use('/login',loginRouter);
+app.use('/register',registerRouter);
+app.use('/admin',adminRouter);
+app.use('/customer', custRoutes);
+app.use('/shoppingcart',shoppingcartRouter);
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  next(createError(404));
 });
 
 module.exports = app;

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><%= title %></title>
+	<link href="https://fonts.googleapis.com/css?family=Great+Vibes|Quattrocento+Sans|Satisfy&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+
+	<!-- <link rel="stylesheet"  href="/basiccss.css"> -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+	integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+<link rel='stylesheet' href='/stylesheets/style.css'/>
+
+	<link rel="stylesheet"  href="/stylesheets/dashboard.css">
+
+
+</head>
+<body>
+    
+<%- include('./includes/header.ejs') %>
+
+    <div class="container my-5">
+
+            <% if(data.length>0) { %>
+				<% for(var i=0; i<data.length;i++) { %>
+
+            <div class = "d-flex flex-row justify-content-center">
+                    <div class= "col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                
+                                <strong><%= data[i].item.foodname %></strong>
+                                    <span class="badge-pill badge-success mx-2">Rs. <%= data[i].item.price %></span>
+                                    <div class="btn-group">
+                                        <button class=" btn btn-primary btn-xs dropdown-toggle" type="button">Action 
+                                            <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a href="#">Remove by 1</a>
+                                            </li>
+                                            
+                                            <li>
+                                                    <a href="#">Remove all</a>
+                                                </li>
+                                        </ul>
+                                    </div>
+                                    <span class=" badge badge-pill badge-info float-right mt-1 mx-2"> <%= data[i].qty %></span>
+                                
+                            </li>
+                        </ul>
+                
+                    </div>
+                </div>
+                <% } %>
+                
+    
+    
+    </div>
+    <hr>
+
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+                <strog>Total: <%= totalPrice %> </strog>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+                <button  type="button" class="btn btn-success">Checkout</button>
+            </div>
+            
+        </div>
+    </div>
+        <hr>
+       
+        <%} else { %>
+        <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+                       <h2>Cart is empty</h2>
+                    </div>
+                    
+                </div>
+            </div>
+            <% } %>
+          
+</body>
+</html>
+
+
+
+
+
