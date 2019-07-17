@@ -10,8 +10,18 @@ var mongoose=require('mongoose');
 var User = require('./models/user');
 var  sass    = require('node-sass');
 var sassMiddleware = require('node-sass-middleware');
+
+const crypto = require('crypto');
+const multer = require('multer');
+const GridFsStorage = require('multer-gridfs-storage');
+const Grid = require('gridfs-stream');
+const methodOverride = require('method-override');
+
+
+
 //Database connection here
 // mongoose.Promise=global.Promise;
+
 
 
 // const multer = require('multer');
@@ -29,6 +39,35 @@ mongoose.connect('mongodb://localhost:27017/FoodData');
 //   storage: storage
 // });
 
+// Init gfs
+// let gfs;
+
+// conn.once('open', () => {
+//   // Init stream
+//   gfs = Grid(conn.db, mongoose.mongo);
+//   gfs.collection('uploads');
+// });
+
+// // Create storage engine
+// const storage = new GridFsStorage({
+//   url: 'mongodb://localhost:27017/FoodData',
+//   file: (req, file) => {
+//     return new Promise((resolve, reject) => {
+//       crypto.randomBytes(16, (err, buf) => {
+//         if (err) {
+//           return reject(err);
+//         }
+//         const filename = buf.toString('hex') + path.extname(file.originalname);
+//         const fileInfo = {
+//           filename: filename,
+//           bucketName: 'uploads'
+//         };
+//         resolve(fileInfo);
+//       });
+//     });
+//   }
+// });
+// const upload = multer({ storage });
 
 
 //  All Routes here
@@ -51,6 +90,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 // middlewares here
+app.use(methodOverride('_method'));
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
