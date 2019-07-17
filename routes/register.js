@@ -37,7 +37,7 @@ router.post('/',  function(req, res) {
   const password = req.body.password
   const role = req.body.role
   const name = req.body.name
-  
+  const phone = req.body.phone
   User.findOne({ email })
     .then(userDoc => {
       if (userDoc) {

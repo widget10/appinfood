@@ -11,7 +11,8 @@ var UserSchema=new Schema({
   	required:true
   },
   name:String,
-  role:Number
+  role:Number,
+  phone:Number
 });
 
 

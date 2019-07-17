@@ -33,6 +33,18 @@ const email = req.body.email;
         .compare(password, user.password)
         .then(doMatch => {
           if (doMatch) {
+
+            //otp verification
+
+            sendOtp.verify("919999999999", "4365", function (error, data) {
+              console.log(data); // data object with keys 'message' and 'type'
+              if(data.type == 'success') console.log('OTP verified successfully')
+              if(data.type == 'error') console.log('OTP verification failed')
+            });
+
+
+
+
             // req.session.isLoggedIn = true;
             req.session.user = user;
             if(role == 1 && role == user.role){

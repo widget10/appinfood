@@ -10,7 +10,6 @@ var mongoose=require('mongoose');
 var User = require('./models/user');
 var  sass    = require('node-sass');
 var sassMiddleware = require('node-sass-middleware');
-
 const crypto = require('crypto');
 const multer = require('multer');
 const GridFsStorage = require('multer-gridfs-storage');
@@ -18,7 +17,12 @@ const Grid = require('gridfs-stream');
 const methodOverride = require('method-override');
 
 
+const SendOtp = require('sendotp');
+const sendOtp = new SendOtp('285517A3lUDFLUd5d2ebf40', 'Otp for your FOODHUB is {{otp}}, please do not share it with anybody');
 
+sendOtp.send("7839156089", "PRIIND", function (error, data) {
+  console.log(data);
+});
 //Database connection here
 // mongoose.Promise=global.Promise;
 
