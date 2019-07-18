@@ -25,14 +25,29 @@ var Cart = require('../models/cart');
   
 // };
 
+
 router.get('/', function(req, res, next) {
   
-  req.session.cart = new Cart(req.session.cart ? req.session.cart : {items:{}});//makes cart when customer logins
   res.render('index');
 });
 
 router.get('/dashboard', function(req, res, next) {
+  // req.session.cart = new Cart(req.session.cart ? req.session.cart : {items:{}});//makes cart when customer logins
+  if(!req.session.cart) {
 
+    return Fooditem.find()    
+    .then( (food) => {
+      res.render('dashboard',{
+        title:'Dashboard',
+        food : food,
+        qty: 0
+    } );
+     
+   })
+   .catch(err => {
+     console.log(err);
+   });
+}
  
   Fooditem.find()    
    .then( (food) => {
@@ -47,12 +62,6 @@ router.get('/dashboard', function(req, res, next) {
   .catch(err => {
     console.log(err);
   });
-
-
-
-
-
-  
 });
 
 

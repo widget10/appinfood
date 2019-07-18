@@ -24,7 +24,12 @@ var Fooditem = require('../models/fooditem');
 
 router.get('/', function(req,res,next){
 if(!req.session.cart) {
-    return res.render('shoppingcart',{fooditem:null} );
+    return res.render('shoppingcart',{
+        title:'Shopping cart',
+      data: [],
+      totalPrice : 0,
+        qty: 0
+    } );
 
 }
  var cart = new Cart(req.session.cart);

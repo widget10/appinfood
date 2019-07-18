@@ -17,10 +17,6 @@ router.post('/addfood', function(req, res) {
 
   // a.img.data = fs.readFileSync(imgPath);
   // a.img.contentType = 'image/png';
-
-
-  
-
   var fooditem = new Fooditem({
     // img:req.body.img,
     foodname : req.body.foodname,

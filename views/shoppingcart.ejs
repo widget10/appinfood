@@ -26,26 +26,43 @@
 				<% for(var i=0; i<data.length;i++) { %>
 
             <div class = "d-flex flex-row justify-content-center">
-                    <div class= "col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+                    <div class= "col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3  ">
                         <ul class="list-group">
                             <li class="list-group-item">
                                 
                                 <strong><%= data[i].item.foodname %></strong>
-                                    <span class="badge-pill badge-success mx-2">Rs. <%= data[i].item.price %></span>
-                                    <div class="btn-group">
+                                    <i class="fa fa-rupee"></i> <%= data[i].item.price %>
+                                  
+                               
+                                    <a href="/customer/removeall/<%- data[i].item._id %>"  class="badge badge-pill badge-success mx-2 float-right pull-right" role="button"><i class="fa fa-trash"></i></a>
+                                        
+                                   
+                                    
+                                  <a href="/customer/add-inside-cart/<%- data[i].item._id %>" class="badge badge-pill badge-success mx-2 float-right pull-right  " role="button"> + </a>
+                                  
+                                  <span class=" badge badge-pill badge-info pull-right "> <%= data[i].qty %></span>
+                                  <a href="/customer/remove-from-cart/<%- data[i].item._id %>" class="badge badge-pill badge-success mx-2 float-right pull-right" role="button">-</a>
+                                  
+                                  
+                                  
+
+                                    <!-- <div class="btn-group">
                                         <button class=" btn btn-primary btn-xs dropdown-toggle" type="button" data-toggle="dropdown">Action 
                                             <span class="caret"></span>
                                         </button>
                                         <ul class="dropdown-menu">
                                             <li>
                                                 <a href="#">Remove by 1</a>
+                                                <a href="/customer/remove-from-cart/<%- data[i].item._id %>" class="btn btn-success pull-right" role="button">Remove by 1</a>
+
                                             </li>
                                             <li>
                                                     <a href="#">Remove all</a>
                                                 </li>
                                         </ul>
-                                    </div>
-                                    <span class=" badge badge-pill badge-info float-right mt-1 mx-2"> <%= data[i].qty %></span>
+                                    </div> -->
+                                    
+                                    
                                 
                             </li>
                         </ul>
@@ -54,8 +71,6 @@
                 </div>
                 <% } %>
                 
-    
-    
     </div>
     <hr>
 
@@ -63,7 +78,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
-                <strog>Total: <%= totalPrice %> </strog>
+                <strog>Total: <i class="fa fa-rupee"></i> <%= totalPrice %> </strog>
             </div>
         </div>
     </div>
@@ -82,17 +97,25 @@
         <div class="container">
                 <div class="row">
                     <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
-                       <h2>Cart is empty</h2>
-                    </div>
+                       <h1>Cart is empty <i class="fa fa-warning"></i></h1>
                     
+                    </div>
+                    <div class="col-sm-6 col-sm-offset-3">
+                            
+                            <a href="dashboard"><h3>Order Something Delicious         <i class="fa fa-arrow-left"></i></h3></a> 
+                         </div>
                 </div>
             </div>
             <% } %>
           
             
-<script   src="https://code.jquery.com/jquery-1.12.3.min.js"   integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ="   crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<!-- <script   src="https://code.jquery.com/jquery-1.12.3.min.js"   integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ="   crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> -->
 
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script> -->
 
 </body>
 </html>
