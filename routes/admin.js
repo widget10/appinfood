@@ -4,14 +4,13 @@ var Fooditem = require('../models/fooditem');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('admin');
+  res.render('admin/admindash');
 });
 
 router.get('/addfood', function(req, res, next) {
-  res.render('addfood');
-    
-  
+  res.render('admin/addfood');
 });
+
 // post food route
 router.post('/addfood', function(req, res) {
 
