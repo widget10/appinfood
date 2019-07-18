@@ -20,8 +20,8 @@
 
 <%- include('./includes/header.ejs') %>
 
-<div class=" text-center">
-	<h4><i class="fa fa-book"></i> MENU </h4>
+<div class=" text-center" style="margin: 2em 5em 3em 5em">
+	<h1><i class="fa fa-book"></i> MENU </h1>
 
 </div>
 <div class=" container my-5 mx-3" >
@@ -32,22 +32,31 @@
 
 	<div class="row">
 			<% if(food.length>0) { %>
-				<% for(var i=0; i<food.length;i++) { %>
 
+				<% for(var i=0; i<food.length;i++) { %>
+					
 		<div class="col-sm-6 col-md-4" >
-			<div class="thumbnail">
-				<img src="https://upload.wikimedia.org/wikipedia/en/5/5e/Gothiccover.png" alt="..." class="img-responsive">
+			<div class="card " style="border: black">
+				<img src="<%- food[i].img %>" alt="<%= food[i].foodname %>IMG" class="img-responsive">
+				<span class="pull-right"><%= food[i].category %></span>
 				<div class="caption">
-					<h3><%= food[i].foodname %></h3>
-					<p class="description"><%= food[i].des %></p>
+
+					<h4><%= food[i].foodname %></h4>
+					<hr>
+					
+					<p class="description"><%= food[i].des %></p>	
+					<hr>
+					
 					<div class="clearfix">
 						<div class="price pull-left"><i class="fa fa-rupee"></i> <%= food[i].price %></div>
-						<a href="customer/add-to-cart/<%- food[i]._id %>" class="btn btn-success pull-right" role="button">ADD to cart</a>
+						<a href="customer/add-to-cart/<%- food[i]._id %>" style="background-image: linear-gradient(-225deg, #9EFBD3 0%, #57E9F2 48%, #45D4FB 100%); color: black" class="btn btn-success pull-right" role="button">Add</a>
 					</div>
 				</div>
 			</div>
 		</div>
 		<% } %>
+
+
 		<% } %>
 		
 		

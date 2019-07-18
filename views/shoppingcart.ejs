@@ -29,7 +29,11 @@
                     <div class= "col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3  ">
                         <ul class="list-group">
                             <li class="list-group-item">
-                                
+                                    <img src="<%- data[i].item.img %>" alt="IMG"  style="width: 8vh;height: 8vh;border:black; border-radius: 50%" class="img-responsive" >
+
+
+                            
+                                   
                                 <strong><%= data[i].item.foodname %></strong>
                                     <i class="fa fa-rupee"></i> <%= data[i].item.price %>
                                   
@@ -82,11 +86,12 @@
             </div>
         </div>
     </div>
+    <div></div>
     <hr>
     <div class="container">
-        <div class="row">
-            <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
-                <a href="/checkout" type="button" class="btn btn-success">Checkout</a>
+        <div class="row" >
+            <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3" >
+                <a href="/checkout" type="button"  style="color:black;background-image: linear-gradient(-225deg, #9EFBD3 0%, #57E9F2 48%, #45D4FB 100%);" class="btn btn-success">Checkout</a>
             </div>
             
         </div>

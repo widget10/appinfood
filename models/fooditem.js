@@ -6,7 +6,7 @@ var foodItemSchema = Schema({
     des: String,
     category: String,
     price: Number,
-    img: { data: Buffer, contentType: String }
+    img:String
 });
 
 
