@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var Fooditem = require('../models/fooditem');
+var Cart = require('../models/cart');
+
 
 /* GET home page. */
 // router.get('/', function(req, res, next) {
@@ -24,13 +26,14 @@ var Fooditem = require('../models/fooditem');
 // };
 
 router.get('/', function(req, res, next) {
+  
+  req.session.cart = new Cart(req.session.cart ? req.session.cart : {items:{}});//makes cart when customer logins
   res.render('index');
 });
 
 router.get('/dashboard', function(req, res, next) {
 
  
-
   Fooditem.find()    
    .then( (food) => {
     res.render("dashboard", 

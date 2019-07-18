@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var Cart = require('../models/cart');
+// var Cart = require('../models/cart');
 var Fooditem = require('../models/fooditem');
 /* GET users listing. */
 // router.get('/', function(req, res, next) {
@@ -40,6 +40,7 @@ Fooditem.find(function (err, docs){
     // for(var i=0;i<docs.length;i+=chunkSize){
     //     fooditemChunks.push(docs.slice(i,i+chunkSize));
     // }
+    req.session.cart = new Cart(req.session.cart ? req.session.cart : {items:{}});
     res.render('cart',{title:'Shopping cart',
     food:docs,
     qty: req.session.cart.totalQty
