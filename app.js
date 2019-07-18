@@ -84,7 +84,7 @@ var registerRouter = require('./routes/register');
 var adminRouter = require('./routes/admin')
 var custRoutes = require('./routes/customer');
 var shoppingcartRouter= require('./routes/shoppingcart');
-
+var checkoutRouter= require('./routes/checkout');
 
 
 
@@ -149,6 +149,7 @@ app.use('/register',registerRouter);
 app.use('/admin',adminRouter);
 app.use('/customer', custRoutes);
 app.use('/shoppingcart',shoppingcartRouter);
+app.use('/checkout',checkoutRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

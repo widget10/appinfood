@@ -33,14 +33,13 @@
                                 <strong><%= data[i].item.foodname %></strong>
                                     <span class="badge-pill badge-success mx-2">Rs. <%= data[i].item.price %></span>
                                     <div class="btn-group">
-                                        <button class=" btn btn-primary btn-xs dropdown-toggle" type="button">Action 
+                                        <button class=" btn btn-primary btn-xs dropdown-toggle" type="button" data-toggle="dropdown">Action 
                                             <span class="caret"></span>
                                         </button>
                                         <ul class="dropdown-menu">
                                             <li>
                                                 <a href="#">Remove by 1</a>
                                             </li>
-                                            
                                             <li>
                                                     <a href="#">Remove all</a>
                                                 </li>
@@ -72,7 +71,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
-                <button  type="button" class="btn btn-success">Checkout</button>
+                <a href="/checkout" type="button" class="btn btn-success">Checkout</a>
             </div>
             
         </div>
@@ -90,6 +89,11 @@
             </div>
             <% } %>
           
+            
+<script   src="https://code.jquery.com/jquery-1.12.3.min.js"   integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ="   crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+
 </body>
 </html>
 
